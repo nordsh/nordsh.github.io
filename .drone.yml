@@ -22,4 +22,4 @@ steps:
       target_branch: main
       force_push: true
       ssh_key:
-         from_secret: SSH_GITHUB
+         from_secret: SSH_KEY_GH
