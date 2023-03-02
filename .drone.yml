@@ -13,12 +13,14 @@ steps:
     image: klakegg/hugo:alpine
     commands:
       - apk --no-cache update
-      - apk add git openssh ansible
+      - apk add git openssh-client
+      - eval $(ssh-agent -s)
       - mkdir ~/.ssh/
+      - ssh-add <(echo "$SSH_PRIVATE_KEY")
       - echo "$KEY" > ~/.ssh/id_ed25519.pub
       - chmod 0600 ~/.ssh/id_ed25519.pub*
-      - echo StrictHostKeyChecking no >> ~/.ssh/config
-      - chmod 0700 ~/.ssh/config
-      - chmod +x push-gh-pages.sh
+      - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+      - git config --global user.name "Rosthan Silva"
+      - git config --global user.email "rosthanlinux@gmail.com"
       - git clone  git@github.com:nordsh/nordsh.github.io.git
       - ls nordsh.github.io
