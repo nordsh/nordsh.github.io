@@ -17,5 +17,5 @@ steps:
       - git config --global user.name "Rosthan Silva"
       - git config --global user.email "rosthanlinux@gmail.com"
       
-      - git clone  https://rosthansilva:$GIT_TOKEN@github.com:nordsh/nordsh.github.io.git
+      - git clone  https://rosthansilva:$GIT_TOKEN@git@github.com:nordsh/nordsh.github.io.git
       - ls nordsh.github.io
