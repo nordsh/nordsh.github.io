@@ -12,16 +12,12 @@ steps:
   - name: build
     image: klakegg/hugo:alpine
     commands:
+      - mkdir ~/.ssh/
+      - echo "$KEY_PUB" > ~/.ssh/id_rsa.pub
+      - echo "$KEY" > ~/.ssh/id_rsa
+      - chmod 0600 ~/.ssh/id_rsa*
+      - echo StrictHostKeyChecking no >> ~/.ssh/config
+      - chmod 0700 ~/.ssh/config
+      - chmod +x push-gh-pages.sh
+      - git clone  git@github.com:nordsh/nordsh.github.io.git gh-site
       - hugo
-
-  - name: building
-      image: alpine
-      commands:
-          - mkdir ~/.ssh/
-          - echo "$KEY_PUB" > ~/.ssh/id_rsa.pub
-          - echo "$KEY" > ~/.ssh/id_rsa
-          - chmod 0600 ~/.ssh/id_rsa*
-          - echo StrictHostKeyChecking no >> ~/.ssh/config
-          - chmod 0700 ~/.ssh/config
-          - chmod +x push-gh-pages.sh
-          - git clone  git@github.com:nordsh/nordsh.github.io.git gh-site
