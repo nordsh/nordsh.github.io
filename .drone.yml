@@ -24,4 +24,5 @@ steps:
       username: rosthansilva
       password: PASS_GH
       target_branch: gh-pages
+      pages_directory: /
      
