@@ -11,16 +11,17 @@ trigger:
 steps:
   - name: build
     image: klakegg/hugo:alpine
+    environment:
+      KEY:
+        from_secret: KEY
     commands:
       - apk --no-cache update
-      - apk add git openssh-client
-      - echo "$KEY" > /home/$(whoami)/.ssh/id_ed25519
-      - chmod 600 /home/$(whoami)/.ssh/id_ed25519
-      - ssh-keyscan -H "github.com" >> /home/$(whoami)/.ssh/known_hosts
-      - eval "$(ssh-agent -s)"
-      - ssh-add /home/$(whoami)/.ssh/id_ed25519
+      - apk add git
+      - mkdir ~/.ssh/
+      - echo "$KEY" > ~/.ssh/id_rsa
+      - chmod 400 ~/.ssh/id_rsa*
+      - echo StrictHostKeyChecking no >> ~/.ssh/config
+      - chmod 400 ~/.ssh/config
       - chmod +x push-gh-pages.sh
-      - git config --global user.name "Rosthan Silva"
-      - git config --global user.email "rosthanlinux@gmail.com"
-      - git clone  git@github.com:nordsh/nordsh.github.io.git
-      - ls nordsh.github.io
+      - git clone  git@github.com:nordsh/nordsh.github.io.git gh-site
+      - hugo
