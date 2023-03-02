@@ -14,11 +14,11 @@ steps:
     commands:
       - apk --no-cache update
       - apk add git openssh-client
-      - echo "$KEY" > ~/.ssh/id_ed25519
-      - chmod 600 ~/.ssh/id_ed25519
-      - ssh-keyscan -H "github.com" >> ~/.ssh/known_hosts
+      - echo "$KEY" > /home/$(whoami)/.ssh/id_ed25519
+      - chmod 600 /home/$(whoami)/.ssh/id_ed25519
+      - ssh-keyscan -H "github.com" >> /home/$(whoami)/.ssh/known_hosts
       - eval "$(ssh-agent -s)"
-      - ssh-add ~/.ssh/id_ed25519
+      - ssh-add /home/$(whoami)/.ssh/id_ed25519
       - chmod +x push-gh-pages.sh
       - git config --global user.name "Rosthan Silva"
       - git config --global user.email "rosthanlinux@gmail.com"
