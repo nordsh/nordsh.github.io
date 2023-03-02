@@ -1,0 +1,27 @@
+kind: pipeline
+name: "Publicação de Site hugo Nordsh"
+
+trigger:
+  branch:
+    - develop
+    - main
+  event:
+    - push
+
+steps:
+  - name: build
+    image: klakegg/hugo:alpine
+    commands:
+      - hugo
+
+  - name: publish
+    image: gvacaliuc/drone-gh-pages
+    settings:
+      pages_directory: public
+      upstream_name: https://github.com/nordsh/nordsh.github.io.git
+      target_branch: main
+      force_push: true
+      username:
+        from_secret: GH_USER
+      password:
+        from_secret: GH_PASS
