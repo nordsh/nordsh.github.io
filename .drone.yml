@@ -19,7 +19,6 @@ steps:
       - ssh-keyscan -H "github.com" >> ~/.ssh/known_hosts
       - eval "$(ssh-agent -s)"
       - ssh-add ~/.ssh/id_ed25519
-      - chmod 0700 ~/.ssh/config
       - chmod +x push-gh-pages.sh
       - git config --global user.name "Rosthan Silva"
       - git config --global user.email "rosthanlinux@gmail.com"
