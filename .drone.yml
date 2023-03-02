@@ -13,10 +13,10 @@ steps:
     image: klakegg/hugo:alpine
     commands:
       - apk --no-cache update
-      - apk add git openssh
+      - apk add git openssh ansible
       - mkdir ~/.ssh/
-      - echo "$KEY" > ~/.ssh/id_rsa
-      - chmod 0600 ~/.ssh/id_rsa*
+      - echo "$KEY" > ~/.ssh/id_ed25519.pub
+      - chmod 0600 ~/.ssh/id_ed25519.pub*
       - echo StrictHostKeyChecking no >> ~/.ssh/config
       - chmod 0700 ~/.ssh/config
       - chmod +x push-gh-pages.sh
