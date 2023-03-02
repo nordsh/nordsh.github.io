@@ -16,7 +16,7 @@ steps:
         from_secret: KEY
     commands:
       - apk --no-cache update
-      - apk add git
+      - apk add git openssh-client 
       - mkdir ~/.ssh/
       - echo $KEY > ~/.ssh/id_rsa
       - chmod 400 ~/.ssh/id_rsa*
