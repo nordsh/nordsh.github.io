@@ -18,11 +18,10 @@ steps:
     image: plugins/gh-pages
     settings:
       pages_directory: public
-      upstream_name: git@github.com:nordsh/nordsh.github.io.git
+      upstream_name: https://github.com/nordsh/nordsh.github.io.git
       target_branch: main
       force_push: true
       username: rosthansilva
       password: PASS_GH
-      target_branch: gh-pages
-      pages_directory: /
+      pages_directory: public/
      
