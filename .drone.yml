@@ -16,7 +16,6 @@ steps:
       - apk add git openssh
       - mkdir ~/.ssh/
       - echo "$KEY" > ~/.ssh/id_rsa
-      - chmod 600 $HOME/.ssh/known_hosts
       - chmod 0600 ~/.ssh/id_rsa*
       - echo StrictHostKeyChecking no >> ~/.ssh/config
       - chmod 0700 ~/.ssh/config
