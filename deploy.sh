@@ -24,10 +24,10 @@ git checkout gh-pages 2>/dev/null || git checkout -b gh-pages
 
 hugo -d public
 
-rsync -avh --delete public/* dist
+rsync -avh --delete public/* docs
 
 # Push the files into github pages
-cd dist
+cd docs
 
 git remote add ghub git@github.com:nordsh/nordsh.github.io.git
 
