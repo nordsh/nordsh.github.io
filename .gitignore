@@ -1,15 +1,15 @@
 # ---> Hugo
 # Generated files by hugo
-/public/
-/resources/_gen/
-/assets/jsconfig.json
-hugo_stats.json
+/app/public/
+/app/resources/_gen/
+/app/assets/jsconfig.json
+/app/hugo_stats.json
 
 # Executable may be added to repository
-hugo.exe
-hugo.darwin
-hugo.linux
+/app/hugo.exe
+/app/hugo.darwin
+/app/hugo.linux
 
 # Temporary lock file while building
-/.hugo_build.lock
+/app/.hugo_build.lock
 
