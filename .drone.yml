@@ -27,5 +27,5 @@ steps:
       - git config --global user.name "Rosthan Silva"
       - git config --global user.email "rosthanlinux@gmail.com"
       - ssh -vT git@github.com
-      - GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no" git clone  git@github.com:nordsh/nordsh.github.io.git gh-site
+      - GIT_SSH_COMMAND="ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -o PasswordAuthentication no" git clone  git@github.com:nordsh/nordsh.github.io.git gh-site
       - hugo
