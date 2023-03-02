@@ -15,11 +15,11 @@ steps:
       - apk --no-cache update
       - apk add git openssh
       - mkdir ~/.ssh/
-      - echo "$KEY_PUB" > ~/.ssh/id_rsa.pub
       - echo "$KEY" > ~/.ssh/id_rsa
+      - chmod 600 $HOME/.ssh/known_hosts
       - chmod 0600 ~/.ssh/id_rsa*
       - echo StrictHostKeyChecking no >> ~/.ssh/config
       - chmod 0700 ~/.ssh/config
       - chmod +x push-gh-pages.sh
-      - git clone  git@github.com:nordsh/nordsh.github.io.git gh-site
-      - ls gh-site
+      - git clone  git@github.com:nordsh/nordsh.github.io.git
+      - ls nordsh.github.io
