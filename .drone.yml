@@ -21,5 +21,7 @@ steps:
       upstream_name: git@github.com:nordsh/nordsh.github.io.git
       target_branch: main
       force_push: true
-      ssh_key:
-         from_secret: SSH_KEY_GH
+      username: rosthansilva
+      password: PASS_GH
+      target_branch: gh-pages
+     
