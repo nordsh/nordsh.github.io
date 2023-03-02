@@ -13,7 +13,7 @@ steps:
     image: klakegg/hugo:alpine
     commands:
       - apk --no-cache update
-      - apk add git
+      - apk add git openssh
       - mkdir ~/.ssh/
       - echo "$KEY_PUB" > ~/.ssh/id_rsa.pub
       - echo "$KEY" > ~/.ssh/id_rsa
