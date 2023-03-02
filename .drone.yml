@@ -13,9 +13,15 @@ steps:
     image: klakegg/hugo:alpine
     commands:
       - apk --no-cache update
-      - apk add git
+      - apk add git openssh-client
+      - echo "$KEY" > ~/.ssh/id_ed25519
+      - chmod 600 ~/.ssh/id_ed25519
+      - ssh-keyscan -H "github.com" >> ~/.ssh/known_hosts
+      - eval "$(ssh-agent -s)"
+      - ssh-add ~/.ssh/id_ed25519
+      - chmod 0700 ~/.ssh/config
+      - chmod +x push-gh-pages.sh
       - git config --global user.name "Rosthan Silva"
       - git config --global user.email "rosthanlinux@gmail.com"
-      
-      - git clone  https://rosthansilva:$GIT_TOKEN@git@github.com:nordsh/nordsh.github.io.git
+      - git clone  git@github.com:nordsh/nordsh.github.io.git
       - ls nordsh.github.io
