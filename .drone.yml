@@ -16,7 +16,6 @@ steps:
       - apk add git openssh-client
       - eval $(ssh-agent -s)
       - mkdir ~/.ssh/
-      - ssh-add <(echo "$KEY")
       - echo "$KEY" > ~/.ssh/id_ed25519.pub
       - chmod 0600 ~/.ssh/id_ed25519.pub*
       - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
