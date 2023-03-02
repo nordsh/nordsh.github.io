@@ -19,8 +19,9 @@ steps:
       - apk add git openssh-client 
       - mkdir ~/.ssh/
       - echo $KEY > ~/.ssh/id_rsa
-      - chmod 400 ~/.ssh/id_rsa*
-      - echo StrictHostKeyChecking no >> ~/.ssh/config
+      - chmod 600 ~/.ssh/id_rsa*
+      - echo "StrictHostKeyChecking no" >> ~/.ssh/config
+      - echo "Host *" >> ~/.ssh/config
       - chmod 400 ~/.ssh/config
       - git clone  git@github.com:nordsh/nordsh.github.io.git gh-site
       - hugo
