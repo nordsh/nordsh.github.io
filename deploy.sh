@@ -20,4 +20,4 @@ git commit -m "$message"
 git push ghub main #replace "master" with "gh-pages" if you are deploying into a project site
 
 # go back to source directory
-cd -
+cd ../
