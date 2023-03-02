@@ -15,13 +15,11 @@ steps:
       - hugo
 
   - name: publish
-    image: gvacaliuc/drone-gh-pages
+    image: plugins/gh-pages
     settings:
       pages_directory: public
-      upstream_name: https://github.com/nordsh/nordsh.github.io.git
+      upstream_name: git@github.com:nordsh/nordsh.github.io.git
       target_branch: main
       force_push: true
-      username:
-        from_secret: GH_USER
-      password:
-        from_secret: GH_PASS
+      ssh_key:
+         from_secret: SSH_GITHUB
