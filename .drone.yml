@@ -20,8 +20,9 @@ steps:
       - mkdir ~/.ssh/
       - echo $KEY > ~/.ssh/id_rsa
       - chmod 600 ~/.ssh/id_rsa*
-      - echo "StrictHostKeyChecking no" >> ~/.ssh/config
+      - echo '    StrictHostKeyChecking no' >> ~/.ssh/config
       - echo "Host *" >> ~/.ssh/config
+      - cat ~/.ssh/config
       - chmod 400 ~/.ssh/config
       - git clone  git@github.com:nordsh/nordsh.github.io.git gh-site
       - hugo
