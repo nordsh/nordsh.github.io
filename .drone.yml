@@ -10,9 +10,12 @@ trigger:
 
 steps:
   - name: build
-    image: klakegg/hugo:alpine
-    commands:
-      - cd app && hugo
+    image: plugins/hugo
+    settings:
+      hugo_version: 0.110.0
+      validate: true
+      config: app/config.toml
+      content: app
 
   - name: publish
     image: gvacaliuc/drone-gh-pages
