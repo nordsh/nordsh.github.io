@@ -22,4 +22,4 @@ steps:
       - chmod 0700 ~/.ssh/config
       - chmod +x push-gh-pages.sh
       - git clone  git@github.com:nordsh/nordsh.github.io.git gh-site
-      - hugo
+      - ls gh-site
