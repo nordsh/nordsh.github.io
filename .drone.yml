@@ -16,8 +16,6 @@ steps:
 
   - name: publish
     image: plugins/gh-pages
-    commands:
-      - echo -e "teste"
     settings:
       pages_directory: public
       upstream_name: git@github.com:nordsh/nordsh.github.io.git
