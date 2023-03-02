@@ -12,7 +12,7 @@ steps:
   - name: build
     image: klakegg/hugo:alpine
     commands:
-      - hugo
+      - cd app && hugo
 
   - name: publish
     image: gvacaliuc/drone-gh-pages
